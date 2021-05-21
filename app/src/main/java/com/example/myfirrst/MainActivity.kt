@@ -29,6 +29,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_first.*
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -66,8 +67,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-
          lottie1.setAnimation("gradback.json")
+
         lottie1.playAnimation()
         lottie1.loop(true)
 
