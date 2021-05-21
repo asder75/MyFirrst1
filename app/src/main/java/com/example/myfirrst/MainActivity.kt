@@ -11,6 +11,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.BitmapDrawable
+import android.media.MediaPlayer
 import android.nfc.Tag
 import android.os.Build
 import android.os.Bundle
@@ -90,14 +91,14 @@ class MainActivity : AppCompatActivity() {
         val firstFragment = FirstFragment()
         val fm: FragmentManager = supportFragmentManager
         fm.beginTransaction().add(R.id.linearLayout, firstFragment).commit()
-
+        val  mp = MediaPlayer.create(this,R.raw.lesgosound)
 
         var degree = 45
 
 
 
         buttonrotate2.setOnClickListener {
-
+mp.start()
             //println(bitmap.getHeight())
             //println(bitmap.getWidth())
 degree = 45
@@ -126,6 +127,7 @@ degree = 45
 
 
        btnTakePicture.setOnClickListener {
+           mp.start()
           val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
       photoFile = getPhotoFile(FILE_NAME)
 
@@ -142,6 +144,7 @@ degree = 45
 
         //кнопка для сохранения пикчи в галерею
         saveButton.setOnClickListener {
+            mp.start()
             val imgBitmap = image_view.drawable.toBitmap()
             try{
                 val stream = FileOutputStream(file)
@@ -162,6 +165,7 @@ degree = 45
         }
         //кнопка для загрузки пикчи
         img_pick_btn.setOnClickListener {
+            mp.start()
             //проверка запуска разрешений//
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
@@ -185,7 +189,7 @@ degree = 45
 
         //кнопки поворота на 90 градусов
         buttonrotate.setOnClickListener {
-
+            mp.start()
             editext1.setVisibility(View.VISIBLE);
             butgalka.setVisibility(View.VISIBLE);
             textgradusi.setVisibility(View.VISIBLE);
@@ -194,6 +198,7 @@ degree = 45
         }
 
         butgalka.setOnClickListener {
+            mp.start()
             editext1.setVisibility(View.INVISIBLE);
             butgalka.setVisibility(View.INVISIBLE);
             textgradusi.setVisibility(View.INVISIBLE);
@@ -215,6 +220,7 @@ degree = 45
         }
 
         buttonfilter.setOnClickListener {
+            mp.start()
             buttonegatiw.setVisibility(View.VISIBLE)
             buttonreskost.setVisibility(View.VISIBLE)
             buttoncb.setVisibility(View.VISIBLE)
@@ -224,6 +230,7 @@ degree = 45
         }
 
         buttonexitfilter.setOnClickListener {
+            mp.start()
             buttonegatiw.setVisibility(View.INVISIBLE)
             buttonreskost.setVisibility(View.INVISIBLE)
             buttoncb.setVisibility(View.INVISIBLE)
@@ -234,18 +241,22 @@ degree = 45
             cb4.setVisibility(View.INVISIBLE)
         }
         cb1.setOnClickListener {
+            mp.start()
             bitmap = blackWhite(bitmap, "median")
             image.setImageBitmap(bitmap)
         }
         cb2.setOnClickListener {
+            mp.start()
             bitmap = blackWhite(bitmap, "red")
             image.setImageBitmap(bitmap)
         }
         cb3.setOnClickListener {
+            mp.start()
             bitmap = blackWhite(bitmap, "green")
             image.setImageBitmap(bitmap)
         }
         cb4.setOnClickListener {
+            mp.start()
             bitmap = blackWhite(bitmap, "blue")
             image.setImageBitmap(bitmap)
         }
@@ -253,16 +264,19 @@ degree = 45
 
         //кнопка негатив
         buttonegatiw.setOnClickListener {
+            mp.start()
         bitmap = negative(bitmap)
         image.setImageBitmap(bitmap)
         }
         //кнопка контраст
         buttonreskost.setOnClickListener {
+            mp.start()
         bitmap = contrst(bitmap, 0.5F)
         image.setImageBitmap(bitmap)
         }
       //кнопка черно-белого
         buttoncb.setOnClickListener {
+            mp.start()
 
             cb1.setVisibility(View.VISIBLE)
             cb2.setVisibility(View.VISIBLE)

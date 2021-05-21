@@ -1,5 +1,6 @@
 package com.example.myfirrst
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ class FirstFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -23,12 +25,11 @@ class FirstFragment : Fragment() {
         // Inflate the layout for this fragment
       val v =    inflater.inflate(R.layout.fragment_first, container, false)
 
-
        val bt = v.findViewById<ImageButton>(R.id.button)
-
-
-
+        val mp = MediaPlayer.create(context, R.raw.lesgosound);
+        mp.start()
        bt.setOnClickListener {
+           mp.start()
            val secondFragment = SecondFragment()
            val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
            transaction.replace(R.id.linearLayout,secondFragment)
