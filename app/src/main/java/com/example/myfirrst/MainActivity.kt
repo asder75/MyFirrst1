@@ -65,6 +65,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
          lottie1.setAnimation("gradback.json")
         lottie1.playAnimation()
         lottie1.loop(true)
@@ -84,7 +86,9 @@ class MainActivity : AppCompatActivity() {
         var newImage: IntArray = IntArray(bitmap.getWidth()* bitmap.getHeight())
 
 
-
+        val firstFragment = FirstFragment()
+        val fm: FragmentManager = supportFragmentManager
+        fm.beginTransaction().add(R.id.linearLayout, firstFragment).commit()
 
 
         var degree = 45
@@ -265,9 +269,7 @@ degree = 45
             cb4.setVisibility(View.VISIBLE)
         }
         buttoncub.setOnClickListener {
-            val firstFragment = FirstFragment()
-            val fm: FragmentManager = supportFragmentManager
-            fm.beginTransaction().add(R.id.linearLayout, firstFragment).commit()
+
         }
 
     }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.fragment.app.FragmentTransaction
 import kotlinx.android.synthetic.main.activity_main.*
@@ -16,9 +17,6 @@ class FirstFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        lottie3.setAnimation("gradback.json")
-        lottie3.playAnimation()
-        lottie3.loop(true)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +25,7 @@ class FirstFragment : Fragment() {
       val v =    inflater.inflate(R.layout.fragment_first, container, false)
 
 
-        val bt = v.findViewById<Button>(R.id.metal1)
+       val bt = v.findViewById<ImageButton>(R.id.button)
 
 
 
