@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:foregroundTint="#FFFFFF"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="gradback.json"
+        app:lottie_loop="true"
+        app:lottie_speed="0.7" />
+
+    <!-- <TextView
+        android:id="@+id/textboss"
+        android:layout_width="372dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="132dp"
+        android:fontFamily="@font/carter_one"
+        android:text="@string/textboss"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+   -->
+    <!--Button для загрузки пикчи-->
+
+
+    <!--кнопка поворота на 90 градусов влево-->
+
+
+    <!--pickgallerybut-->
+    <!--savebut-->
+
+
+    <ImageButton
+        android:id="@+id/buttonegatiw"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+
+        android:layout_marginStart="100dp"
+
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/todo123"
+        android:scaleType="centerCrop"
+        android:src="@drawable/neg126"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--кнопка поворота на 180 градусов влево
+        <Button
+            android:id="@+id/buttonrotate3"
+            android:layout_width="68dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="274dp"
+            android:layout_marginEnd="296dp"
+            android:text="180°"
+            android:layout_marginTop="-43dp"
+
+
+            android:textAlignment="center" />
+            -->
+    <!--кнопка поворота на 180 градусов вправо
+    <Button
+        android:id="@+id/buttonrotate4"
+        android:layout_width="68dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="348dp"
+        android:layout_marginEnd="296dp"
+        android:text="180°"
+        android:layout_marginTop="-43dp"
+
+
+        android:textAlignment="center" />
+        -->
+
+    <ImageButton
+        android:id="@+id/buttonreskost"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerCrop"
+        android:src="@drawable/con126"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintStart_toEndOf="@+id/buttonegatiw" />
+
+
+    <ImageButton
+        android:id="@+id/buttoncb"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+
+        android:background="#00FFFFFF"
+        android:scaleType="centerCrop"
+        android:src="@drawable/black126"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintStart_toEndOf="@+id/buttonreskost" />
+
+    <ImageButton
+        android:id="@+id/buttonexitfilter"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icons8exit"
+
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintStart_toEndOf="@+id/buttoncb" />
+
+
+
+        <HorizontalScrollView
+            android:id="@+id/scrollView3"
+            android:background="@color/white"
+            android:layout_width="413dp"
+            android:layout_height="58dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/img_pick_btn"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="8dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/todo4"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icons8fullimage96"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/saveButton"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+
+                    android:layout_marginStart="9dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/todo3"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icons8sav96"
+                    app:layout_constraintStart_toEndOf="@+id/img_pick_btn"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+
+                <ImageButton
+                    android:id="@+id/btnTakePicture"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+
+                    android:layout_marginStart="9dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/todo3"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icons8camera6"
+                    app:layout_constraintStart_toEndOf="@+id/saveButton"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+
+
+
+
+
+    <ImageButton
+        android:id="@+id/cb1"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="84dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerCrop"
+        android:src="@drawable/mmm"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/buttonegatiw"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/cb2"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerCrop"
+        android:src="@drawable/rrr"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/buttonegatiw"
+        app:layout_constraintStart_toEndOf="@+id/cb1" />
+
+    <ImageButton
+        android:id="@+id/cb3"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ggg"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/buttonreskost"
+        app:layout_constraintStart_toEndOf="@+id/cb2" />
+
+    <ImageButton
+        android:id="@+id/cb4"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bbb"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/buttoncb"
+        app:layout_constraintStart_toEndOf="@+id/cb3" />
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/todo"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3"
+        app:srcCompat="@mipmap/cathre" />
+
+
+
+
+        <HorizontalScrollView
+            android:id="@+id/scrollView2"
+            android:background="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <ImageButton
+                    android:id="@+id/buttonrotate"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+
+
+                    android:layout_marginStart="8dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/todo1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icons8podtwer"
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:src="@drawable/icons8podtwer" />
+
+                <ImageButton
+                    android:id="@+id/buttonrotate2"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+
+                    android:layout_marginStart="9dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/todo2"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icons896"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonrotate" />
+
+                <ImageButton
+                    android:id="@+id/buttonfilter"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+
+                    android:layout_marginStart="9dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/todo2"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/iconseffects"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonrotate2" />
+
+                <ImageButton
+                    android:id="@+id/buttonrasmer"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+
+                    android:layout_marginStart="9dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/todo2"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icons8rasmer"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonfilter" />
+
+                <ImageButton
+                    android:id="@+id/buttonidface"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+
+                    android:layout_marginStart="9dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/todo2"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icons8identface"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonrasmer" />
+
+                <ImageButton
+                    android:id="@+id/buttonsplain"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+
+                    android:layout_marginStart="9dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/todo2"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icons8splain"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonidface" />
+
+                <ImageButton
+                    android:id="@+id/buttonretus"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+
+                    android:layout_marginStart="9dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/todo2"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icons8retus96"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonidface" />
+
+                <ImageButton
+                    android:id="@+id/buttonmasking"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+
+                    android:layout_marginStart="9dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/todo2"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icons8masking96"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonidface" />
+
+                <ImageButton
+                    android:id="@+id/buttonbilin"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+
+                    android:layout_marginStart="9dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/todo2"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/iconbilen"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonidface" />
+
+                <ImageButton
+                    android:id="@+id/buttontrilin"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+
+                    android:layout_marginStart="9dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/todo2"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/iconstrilin"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonidface" />
+
+                <ImageButton
+                    android:id="@+id/buttoncub"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+
+                    android:layout_marginStart="9dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/todo2"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icons3dcub"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonidface" />
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+
+    <TextView
+        android:id="@+id/textgradusi"
+        android:layout_width="71dp"
+        android:layout_height="0dp"
+
+
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="26dp"
+        android:text="@string/todo9"
+
+        android:textAlignment="viewEnd"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
+    <ImageButton
+        android:id="@+id/butgalka"
+        android:layout_width="26dp"
+        android:layout_height="29dp"
+
+
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/todo2"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icons8galka"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/textgradusi"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
+    <EditText
+        android:id="@+id/editext1"
+        android:layout_width="42dp"
+        android:layout_height="21dp"
+
+        android:layout_marginTop="24dp"
+        android:autofillHints=""
+        android:background="#F9F3FA"
+        android:ems="10"
+        android:hint="@string/nametodo6"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        android:maxLength="3"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        android:textColorHint="#AFAFAF"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/butgalka"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
