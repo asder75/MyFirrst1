@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
 
         //поворот на 45
         buttonrotate2.setOnClickListener {
-             mp.start()
+
             //println(bitmap.getHeight())
             //println(bitmap.getWidth())
             degree = 45
@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
         }
         //кнопка для фотографирования
        btnTakePicture.setOnClickListener {
-           mp.start()
+
           val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
       photoFile = getPhotoFile(FILE_NAME)
 
@@ -117,7 +117,7 @@ class MainActivity : AppCompatActivity() {
         }
         //кнопка для сохранения пикчи в галерею
         saveButton.setOnClickListener {
-            mp.start()
+
             val imgBitmap = image_view.drawable.toBitmap()
             try{
                 val stream = FileOutputStream(file)
@@ -138,7 +138,7 @@ class MainActivity : AppCompatActivity() {
         }
         //кнопка для загрузки пикчи
         img_pick_btn.setOnClickListener {
-            mp.start()
+
             //проверка запуска разрешений//
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
@@ -159,7 +159,7 @@ class MainActivity : AppCompatActivity() {
         }
         //кнопки поворота на БОНУС градусов
         buttonrotate.setOnClickListener {
-            mp.start()
+
             editext1.setVisibility(View.VISIBLE);
             butgalka.setVisibility(View.VISIBLE);
             textgradusi.setVisibility(View.VISIBLE);
@@ -168,7 +168,7 @@ class MainActivity : AppCompatActivity() {
         }
         //кнопка подтверждения введеных градусов для БОНУСА_1
         butgalka.setOnClickListener {
-            mp.start()
+
             editext1.setVisibility(View.INVISIBLE);
             butgalka.setVisibility(View.INVISIBLE);
             textgradusi.setVisibility(View.INVISIBLE);
@@ -190,7 +190,7 @@ class MainActivity : AppCompatActivity() {
         }
         //кнопка открытия фильтров
         buttonfilter.setOnClickListener {
-            mp.start()
+
             buttonegatiw.setVisibility(View.VISIBLE)
             buttonreskost.setVisibility(View.VISIBLE)
             buttoncb.setVisibility(View.VISIBLE)
@@ -200,7 +200,7 @@ class MainActivity : AppCompatActivity() {
         }
         //кнопка закрытия фильтров
         buttonexitfilter.setOnClickListener {
-            mp.start()
+
             buttonegatiw.setVisibility(View.INVISIBLE)
             buttonreskost.setVisibility(View.INVISIBLE)
             buttoncb.setVisibility(View.INVISIBLE)
@@ -212,43 +212,43 @@ class MainActivity : AppCompatActivity() {
         }
         //кнопка эффекта чб 1
         cb1.setOnClickListener {
-            mp.start()
+
             bitmap = blackWhite(bitmap, "median")
             image.setImageBitmap(bitmap)
         }
         //кнопка эффекта чб 2
         cb2.setOnClickListener {
-            mp.start()
+
             bitmap = blackWhite(bitmap, "red")
             image.setImageBitmap(bitmap)
         }
         //кнопка эффекта чб 3
         cb3.setOnClickListener {
-            mp.start()
+
             bitmap = blackWhite(bitmap, "green")
             image.setImageBitmap(bitmap)
         }
         //кнопка эффекта чб 4
         cb4.setOnClickListener {
-            mp.start()
+
             bitmap = blackWhite(bitmap, "blue")
             image.setImageBitmap(bitmap)
         }
         //кнопка негатив фильтра
         buttonegatiw.setOnClickListener {
-            mp.start()
+
         bitmap = negative(bitmap)
         image.setImageBitmap(bitmap)
         }
         //кнопка контраст фильтра
         buttonreskost.setOnClickListener {
-            mp.start()
+
         bitmap = contrst(bitmap, 0.5F)
         image.setImageBitmap(bitmap)
         }
         //кнопка черно-белого фильтра
         buttoncb.setOnClickListener {
-            mp.start()
+
 
             cb1.setVisibility(View.VISIBLE)
             cb2.setVisibility(View.VISIBLE)

@@ -205,6 +205,21 @@
 
 
 
+
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/todo"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3"
+        app:srcCompat="@mipmap/cathre" />
     <ImageButton
         android:id="@+id/cb1"
         android:layout_width="52dp"
@@ -249,20 +264,6 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/buttoncb"
         app:layout_constraintStart_toEndOf="@+id/cb3" />
-
-    <ImageView
-        android:id="@+id/image_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/todo"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView3"
-        app:srcCompat="@mipmap/cathre" />
 
 
 
