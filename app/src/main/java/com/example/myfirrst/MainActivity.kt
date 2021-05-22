@@ -46,6 +46,8 @@ class MainActivity : AppCompatActivity() {
     private  val FILE_NAME = "photo.jpg"
     private  val REQUEST_CODE = 42
     private lateinit var photoFile: File
+    var newImage: Boolean = false
+
 
     @SuppressLint("WrongViewCast")
 
@@ -62,10 +64,10 @@ class MainActivity : AppCompatActivity() {
         100)
 
         //битмап изображений
-        val image: ImageView = findViewById(R.id.image_view) as ImageView
+        var image: ImageView = findViewById(R.id.image_view) as ImageView
         var bitmap = (image.drawable as BitmapDrawable).bitmap
-        var newBitmap: Bitmap
-        var newImage: IntArray = IntArray(bitmap.getWidth()* bitmap.getHeight())
+
+
         //запуск фрагмента1 при запуске приложения
         val firstFragment = FirstFragment()
         val fm: FragmentManager = supportFragmentManager
@@ -73,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         //для работы с звуками
         val  mp = MediaPlayer.create(this,R.raw.lesgosound)
         //даем начальное значение углу
-        var degree = 45
+        var degree = 90
         //для сохранения картинок
         val fileName = "my_file.jpg"
         val path = this.getExternalFilesDir(null)!!.absolutePath
@@ -82,6 +84,8 @@ class MainActivity : AppCompatActivity() {
         lottie1.setAnimation("gradback.json")
         lottie1.playAnimation()
         lottie1.loop(true)
+        var nolik = 0
+        var oldBitmap = bitmap
 
 
         //обработка кнопок
@@ -91,12 +95,11 @@ class MainActivity : AppCompatActivity() {
 
             //println(bitmap.getHeight())
             //println(bitmap.getWidth())
-            degree = 45
-            newBitmap = rotateBonus(bitmap, degree)
-            image.setImageBitmap(newBitmap)
-            bitmap = newBitmap
-            println(bitmap.getHeight())
-            println(bitmap.getWidth())
+            degree = 90
+
+            bitmap = rotate(bitmap)
+            image.setImageBitmap(bitmap)
+
 
         }
         //кнопка для фотографирования
@@ -149,12 +152,24 @@ class MainActivity : AppCompatActivity() {
                     requestPermissions(permissions, PERMISSION_CODE)
                 } else {
                     //права есть урааа!
+
                     pickImageFromGallery();
+                    image = findViewById(R.id.image_view) as ImageView
+                    bitmap = (image.drawable as BitmapDrawable).bitmap
+                    oldBitmap = bitmap
+
+
+
+
 
                 }
             } else {
                 //
                 pickImageFromGallery();
+
+
+
+
             }
         }
         //кнопки поворота на БОНУС градусов
@@ -176,13 +191,15 @@ class MainActivity : AppCompatActivity() {
 
              val agradusx = editText.text.toString()
             val anyName = agradusx.toInt()
-            degree = anyName
-            newBitmap = rotateBonus(bitmap, degree)
-            image.setImageBitmap(newBitmap)
-            bitmap = newBitmap
-            println(bitmap.getHeight())
-            println(bitmap.getWidth())
 
+            nolik += anyName
+            bitmap = rotateBonus(oldBitmap, nolik, bitmap)
+            image.setImageBitmap(bitmap)
+            if(newImage === true)
+            {
+                oldBitmap = bitmap
+                newImage = false
+            }
 
             //textView44.setText(agradusx.toString())
 
@@ -214,35 +231,40 @@ class MainActivity : AppCompatActivity() {
         cb1.setOnClickListener {
 
             bitmap = blackWhite(bitmap, "median")
+            oldBitmap = blackWhite(bitmap, "median")
             image.setImageBitmap(bitmap)
         }
         //кнопка эффекта чб 2
         cb2.setOnClickListener {
 
             bitmap = blackWhite(bitmap, "red")
+            oldBitmap = blackWhite(bitmap, "red")
             image.setImageBitmap(bitmap)
         }
         //кнопка эффекта чб 3
         cb3.setOnClickListener {
 
             bitmap = blackWhite(bitmap, "green")
+            oldBitmap = blackWhite(bitmap, "green")
             image.setImageBitmap(bitmap)
         }
         //кнопка эффекта чб 4
         cb4.setOnClickListener {
 
             bitmap = blackWhite(bitmap, "blue")
+            oldBitmap = blackWhite(bitmap, "blue")
             image.setImageBitmap(bitmap)
         }
         //кнопка негатив фильтра
         buttonegatiw.setOnClickListener {
 
         bitmap = negative(bitmap)
+            oldBitmap = negative(bitmap)
         image.setImageBitmap(bitmap)
         }
         //кнопка контраст фильтра
         buttonreskost.setOnClickListener {
-
+        oldBitmap = contrst(bitmap, 0.5F)
         bitmap = contrst(bitmap, 0.5F)
         image.setImageBitmap(bitmap)
         }
@@ -281,9 +303,11 @@ class MainActivity : AppCompatActivity() {
     //функция получения изображения из галереи
     private fun pickImageFromGallery()
     {
-val intent = Intent(Intent.ACTION_PICK)
+         var intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, IMAGE_PICK_CODE)
+
+
     }
     //коды взятого изображения и разрешения
     companion object {
@@ -350,15 +374,16 @@ val intent = Intent(Intent.ACTION_PICK)
     //АЛГОРИТМ 1
     // функция поворота(стандартная)
     fun rotate(bitmap: Bitmap): Bitmap {
-        val image: ImageView = findViewById(R.id.image_view) as ImageView
+
+            val image: ImageView = findViewById(R.id.image_view) as ImageView
 
 
-        var bitmap = (image.drawable as BitmapDrawable).bitmap
-        var newBitmap: Bitmap
-        var newImage: IntArray = IntArray(bitmap.getWidth()* bitmap.getHeight())
+            var bitmap = (image.drawable as BitmapDrawable).bitmap
+
+
         val width: Int = bitmap.getWidth()
         val height: Int = bitmap.getHeight()
-
+        var newBitmap: Bitmap
         newBitmap = Bitmap.createBitmap(height, width, bitmap.config)
         var pixel: Int
         for (x in 0 until width) {
@@ -371,13 +396,21 @@ val intent = Intent(Intent.ACTION_PICK)
         return newBitmap
     }
     //функция бонусного поворота
-    fun rotateBonus(bitmap: Bitmap, degree: Int): Bitmap {
+    fun rotateBonus( bitmap1: Bitmap, degree: Int,sBitmap: Bitmap): Bitmap {
+
         val image: ImageView = findViewById(R.id.image_view) as ImageView
+        var bitmap: Bitmap
+        var Pbitmap = (image.drawable as BitmapDrawable).bitmap
+         if(Pbitmap!== sBitmap)
+         {
+             bitmap = Pbitmap
+             newImage = true
+         }
+        else{
+             bitmap = bitmap1
+         }
 
-
-        var bitmap = (image.drawable as BitmapDrawable).bitmap
         var newBitmap: Bitmap
-        var newImage: IntArray = IntArray(bitmap.getWidth()* bitmap.getHeight())
         val width = bitmap.getWidth()
         val height = bitmap.getHeight()
         val pi = 3.1415926
@@ -449,13 +482,14 @@ val intent = Intent(Intent.ACTION_PICK)
     // АЛГОРИТМ 2
     //функция негатива
     fun negative(bitmap: Bitmap): Bitmap {
-        val image: ImageView = findViewById(R.id.image_view) as ImageView
+
+            val image: ImageView = findViewById(R.id.image_view) as ImageView
+            var bitmap = (image.drawable as BitmapDrawable).bitmap
+            newImage = false
 
 
-        var bitmap = (image.drawable as BitmapDrawable).bitmap
         var newBitmap: Bitmap
-        var newImage: IntArray = IntArray(bitmap.getWidth()* bitmap.getHeight())
-
+        var newImage: IntArray = IntArray(bitmap.getWidth() * bitmap.getHeight())
         val width = bitmap.getWidth()
         val height = bitmap.getHeight()
         var pixel: Int
