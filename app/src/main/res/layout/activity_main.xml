@@ -104,7 +104,8 @@
         android:src="@drawable/con126"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintStart_toEndOf="@+id/buttonegatiw" />
+        app:layout_constraintStart_toEndOf="@+id/buttonegatiw"
+        android:contentDescription="@string/todo565" />
 
 
     <ImageButton
@@ -117,7 +118,8 @@
         android:src="@drawable/black126"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintStart_toEndOf="@+id/buttonreskost" />
+        app:layout_constraintStart_toEndOf="@+id/buttonreskost"
+        android:contentDescription="@string/todo567" />
 
     <ImageButton
         android:id="@+id/buttonexitfilter"
@@ -131,7 +133,8 @@
 
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintStart_toEndOf="@+id/buttoncb" />
+        app:layout_constraintStart_toEndOf="@+id/buttoncb"
+        android:contentDescription="@string/todo568" />
 
 
 
@@ -153,8 +156,6 @@
                     android:id="@+id/img_pick_btn"
                     android:layout_width="58dp"
                     android:layout_height="58dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
                     android:layout_marginStart="8dp"
                     android:background="#00FFFFFF"
                     android:contentDescription="@string/todo4"
@@ -167,8 +168,6 @@
                     android:id="@+id/saveButton"
                     android:layout_width="58dp"
                     android:layout_height="58dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
 
                     android:layout_marginStart="9dp"
                     android:background="#00FFFFFF"
@@ -184,8 +183,6 @@
                     android:id="@+id/btnTakePicture"
                     android:layout_width="58dp"
                     android:layout_height="58dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
 
                     android:layout_marginStart="9dp"
                     android:background="#00FFFFFF"
@@ -200,8 +197,6 @@
                     android:id="@+id/btnvk"
                     android:layout_width="54dp"
                     android:layout_height="54dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
 
                     android:layout_marginStart="9dp"
                     android:background="#00FFFFFF"
@@ -246,7 +241,8 @@
         android:src="@drawable/mmm"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/buttonegatiw"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/todo149" />
 
     <ImageButton
         android:id="@+id/cb2"
@@ -257,7 +253,8 @@
         android:src="@drawable/rrr"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/buttonegatiw"
-        app:layout_constraintStart_toEndOf="@+id/cb1" />
+        app:layout_constraintStart_toEndOf="@+id/cb1"
+        android:contentDescription="@string/todo148" />
 
     <ImageButton
         android:id="@+id/cb3"
@@ -268,7 +265,8 @@
         android:src="@drawable/ggg"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/buttonreskost"
-        app:layout_constraintStart_toEndOf="@+id/cb2" />
+        app:layout_constraintStart_toEndOf="@+id/cb2"
+        android:contentDescription="@string/todo147" />
 
     <ImageButton
         android:id="@+id/cb4"
@@ -279,7 +277,8 @@
         android:src="@drawable/bbb"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/buttoncb"
-        app:layout_constraintStart_toEndOf="@+id/cb3" />
+        app:layout_constraintStart_toEndOf="@+id/cb3"
+        android:contentDescription="@string/todo152" />
 
 
 
@@ -577,7 +576,8 @@
         android:src="@drawable/icons8exit"
         android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/butgalka"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3"
+        android:contentDescription="@string/todo151" />
 
     <ImageButton
         android:id="@+id/buttonexitresk"
@@ -591,7 +591,8 @@
         android:src="@drawable/icons8exit"
         android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/butgalka333"
-        app:layout_constraintTop_toBottomOf="@+id/buttonexitgrad" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonexitgrad"
+        android:contentDescription="@string/todo150" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
