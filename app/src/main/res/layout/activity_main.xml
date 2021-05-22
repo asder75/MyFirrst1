@@ -439,17 +439,18 @@
         android:layout_height="0dp"
 
 
-        android:layout_marginStart="170dp"
         android:layout_marginTop="26dp"
-        android:text="@string/todo9"
 
+        android:text="@string/todo9"
         android:textAlignment="viewEnd"
         android:textColor="#000000"
         android:textSize="14sp"
         android:textStyle="bold"
         android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
+
     <ImageButton
         android:id="@+id/butgalka"
         android:layout_width="26dp"
@@ -463,13 +464,15 @@
         android:scaleType="centerCrop"
         android:src="@drawable/icons8galka"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/textgradusi"
+        app:layout_constraintStart_toEndOf="@+id/editext1"
         app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
+
     <EditText
         android:id="@+id/editext1"
         android:layout_width="42dp"
         android:layout_height="21dp"
 
+        android:layout_marginStart="4dp"
         android:layout_marginTop="24dp"
         android:autofillHints=""
         android:background="#F9F3FA"
@@ -484,7 +487,7 @@
         android:textColorHint="#AFAFAF"
         android:textSize="18sp"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/butgalka"
+        app:layout_constraintStart_toEndOf="@+id/textgradusi"
         app:layout_constraintTop_toBottomOf="@+id/scrollView3"
         tools:ignore="MissingConstraints" />
 
@@ -496,7 +499,7 @@
 
         android:layout_marginTop="17dp"
 
-        android:text="КОЭФ."
+        android:text="@string/todo1233"
         android:textAlignment="viewEnd"
         android:textColor="#000000"
         android:textSize="14sp"
@@ -512,14 +515,14 @@
         android:layout_height="29dp"
 
 
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="1dp"
         android:layout_marginTop="7dp"
         android:background="#00FFFFFF"
         android:contentDescription="@string/todo2"
         android:scaleType="centerCrop"
         android:src="@drawable/icons8galka"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/textgradusi333"
+        app:layout_constraintStart_toEndOf="@+id/editext133"
         app:layout_constraintTop_toBottomOf="@+id/butgalka" />
 
     <EditText
@@ -527,7 +530,7 @@
         android:layout_width="42dp"
         android:layout_height="21dp"
 
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="15dp"
         android:autofillHints=""
         android:background="#F9F3FA"
@@ -542,9 +545,37 @@
         android:textColorHint="#AFAFAF"
         android:textSize="18sp"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/butgalka333"
+        app:layout_constraintStart_toEndOf="@+id/textgradusi333"
         app:layout_constraintTop_toBottomOf="@+id/editext1"
         tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/buttonexitgrad"
+        android:layout_width="36dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="13dp"
+        android:background="#00FFFFFF"
+
+        android:scaleType="centerCrop"
+        android:src="@drawable/icons8exit"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/butgalka"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
+
+    <ImageButton
+        android:id="@+id/buttonexitresk"
+        android:layout_width="36dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="10dp"
+
+        android:layout_marginTop="4dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icons8exit"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/butgalka333"
+        app:layout_constraintTop_toBottomOf="@+id/buttonexitgrad" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

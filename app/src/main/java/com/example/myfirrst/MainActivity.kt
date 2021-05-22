@@ -62,16 +62,14 @@ class MainActivity : AppCompatActivity() {
          arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,
          Manifest.permission.WRITE_EXTERNAL_STORAGE),
         100)
-
-        //битмап изображений
-        var image: ImageView = findViewById(R.id.image_view) as ImageView
-        var bitmap = (image.drawable as BitmapDrawable).bitmap
-
-
         //запуск фрагмента1 при запуске приложения
         val firstFragment = FirstFragment()
         val fm: FragmentManager = supportFragmentManager
         fm.beginTransaction().add(R.id.linearLayout, firstFragment).commit()
+        //битмап изображений
+        var image: ImageView = findViewById(R.id.image_view) as ImageView
+        var bitmap = (image.drawable as BitmapDrawable).bitmap
+
         //для работы с звуками
         val  mp = MediaPlayer.create(this,R.raw.lesgosound)
         //даем начальное значение углу
@@ -178,7 +176,7 @@ class MainActivity : AppCompatActivity() {
             editext1.setVisibility(View.VISIBLE);
             butgalka.setVisibility(View.VISIBLE);
             textgradusi.setVisibility(View.VISIBLE);
-
+           buttonexitgrad.setVisibility(View.VISIBLE);
 
         }
         //кнопка подтверждения введеных градусов для БОНУСА_1
@@ -187,6 +185,7 @@ class MainActivity : AppCompatActivity() {
             editext1.setVisibility(View.INVISIBLE);
             butgalka.setVisibility(View.INVISIBLE);
             textgradusi.setVisibility(View.INVISIBLE);
+            buttonexitgrad.setVisibility(View.INVISIBLE);
             editText = findViewById<View>(R.id.editext1) as EditText
 
              val agradusx = editText.text.toString()
@@ -269,7 +268,7 @@ class MainActivity : AppCompatActivity() {
             editext133.setVisibility(View.VISIBLE);
             butgalka333.setVisibility(View.VISIBLE);
             textgradusi333.setVisibility(View.VISIBLE);
-
+            buttonexitresk.setVisibility(View.VISIBLE);
 
 
         }
@@ -286,6 +285,7 @@ class MainActivity : AppCompatActivity() {
             editext133.setVisibility(View.INVISIBLE);
             butgalka333.setVisibility(View.INVISIBLE);
             textgradusi333.setVisibility(View.INVISIBLE);
+            buttonexitresk.setVisibility(View.INVISIBLE);
         }
         //кнопка черно-белого фильтра
         buttoncb.setOnClickListener {
@@ -296,7 +296,20 @@ class MainActivity : AppCompatActivity() {
             cb3.setVisibility(View.VISIBLE)
             cb4.setVisibility(View.VISIBLE)
         }
-
+        //кнопка выхода из ввода градусов
+        buttonexitgrad.setOnClickListener {
+            editext1.setVisibility(View.INVISIBLE);
+            butgalka.setVisibility(View.INVISIBLE);
+            textgradusi.setVisibility(View.INVISIBLE);
+            buttonexitgrad.setVisibility(View.INVISIBLE);
+        }
+        //кнопка выхода из ввода контраства
+        buttonexitresk.setOnClickListener {
+            editext133.setVisibility(View.INVISIBLE);
+            butgalka333.setVisibility(View.INVISIBLE);
+            textgradusi333.setVisibility(View.INVISIBLE);
+            buttonexitresk.setVisibility(View.INVISIBLE);
+        }
     }
 
 
