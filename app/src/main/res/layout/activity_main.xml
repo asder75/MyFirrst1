@@ -544,7 +544,6 @@
         android:id="@+id/editext133"
         android:layout_width="42dp"
         android:layout_height="21dp"
-
         android:layout_marginStart="4dp"
         android:layout_marginTop="15dp"
         android:autofillHints=""
@@ -552,6 +551,7 @@
         android:ems="10"
         android:hint="@string/nametodo6"
         android:imeOptions="actionDone"
+        android:inputType="text"
         android:maxLength="9"
         android:textAlignment="center"
         android:textAllCaps="true"
