@@ -12,7 +12,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.BitmapDrawable
 import android.media.MediaPlayer
-import android.nfc.Tag
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
@@ -20,7 +20,6 @@ import android.provider.MediaStore
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -30,14 +29,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_first.*
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.lang.Math.cos
 import java.lang.Math.sin
-
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -309,6 +305,13 @@ class MainActivity : AppCompatActivity() {
             butgalka333.setVisibility(View.INVISIBLE);
             textgradusi333.setVisibility(View.INVISIBLE);
             buttonexitresk.setVisibility(View.INVISIBLE);
+        }
+        //кнопка вк
+        btnvk.setOnClickListener{
+            val url = "https://vk.com/dababy"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
         }
     }
 
