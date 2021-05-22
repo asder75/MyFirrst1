@@ -49,17 +49,6 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("WrongViewCast")
 
-    override fun onBackPressed() {
-        //алертдиалог
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Внимание!")
-        builder.setMessage("Вы хотите закрыть приложение?")
-        builder.setPositiveButton("Да", { dialogInterface: DialogInterface, i: Int ->
-            finish()
-        })
-        builder.setNegativeButton("Нет",{ dialogInterface: DialogInterface, i: Int -> })
-        builder.show()
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -67,41 +56,42 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-         lottie1.setAnimation("gradback.json")
-
-        lottie1.playAnimation()
-        lottie1.loop(true)
-
-       // val button: Button = findViewById<View>(R.id.buttonrotate2) as Button
-
         ActivityCompat.requestPermissions(this,
          arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,
          Manifest.permission.WRITE_EXTERNAL_STORAGE),
         100)
 
-        //123
+        //битмап изображений
         val image: ImageView = findViewById(R.id.image_view) as ImageView
-
         var bitmap = (image.drawable as BitmapDrawable).bitmap
         var newBitmap: Bitmap
         var newImage: IntArray = IntArray(bitmap.getWidth()* bitmap.getHeight())
-
-
+        //запуск фрагмента1 при запуске приложения
         val firstFragment = FirstFragment()
         val fm: FragmentManager = supportFragmentManager
         fm.beginTransaction().add(R.id.linearLayout, firstFragment).commit()
+        //для работы с звуками
         val  mp = MediaPlayer.create(this,R.raw.lesgosound)
-
+        //даем начальное значение углу
         var degree = 45
+        //для сохранения картинок
+        val fileName = "my_file.jpg"
+        val path = this.getExternalFilesDir(null)!!.absolutePath
+        val file = File(path, fileName)
+        //настройка анимаций
+        lottie1.setAnimation("gradback.json")
+        lottie1.playAnimation()
+        lottie1.loop(true)
 
 
+        //обработка кнопок
 
+        //поворот на 45
         buttonrotate2.setOnClickListener {
-mp.start()
+             mp.start()
             //println(bitmap.getHeight())
             //println(bitmap.getWidth())
-degree = 45
+            degree = 45
             newBitmap = rotateBonus(bitmap, degree)
             image.setImageBitmap(newBitmap)
             bitmap = newBitmap
@@ -109,23 +99,7 @@ degree = 45
             println(bitmap.getWidth())
 
         }
-
-
-
-
-
-
-
-
-       // }
-
-        //123
-
-       val fileName = "my_file.jpg"
-         val path = this.getExternalFilesDir(null)!!.absolutePath
-        val file = File(path, fileName)
-
-
+        //кнопка для фотографирования
        btnTakePicture.setOnClickListener {
            mp.start()
           val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
@@ -141,7 +115,6 @@ degree = 45
             }
 
         }
-
         //кнопка для сохранения пикчи в галерею
         saveButton.setOnClickListener {
             mp.start()
@@ -184,10 +157,7 @@ degree = 45
                 pickImageFromGallery();
             }
         }
-
-
-
-        //кнопки поворота на 90 градусов
+        //кнопки поворота на БОНУС градусов
         buttonrotate.setOnClickListener {
             mp.start()
             editext1.setVisibility(View.VISIBLE);
@@ -196,7 +166,7 @@ degree = 45
 
 
         }
-
+        //кнопка подтверждения введеных градусов для БОНУСА_1
         butgalka.setOnClickListener {
             mp.start()
             editext1.setVisibility(View.INVISIBLE);
@@ -218,7 +188,7 @@ degree = 45
 
 
         }
-
+        //кнопка открытия фильтров
         buttonfilter.setOnClickListener {
             mp.start()
             buttonegatiw.setVisibility(View.VISIBLE)
@@ -228,7 +198,7 @@ degree = 45
 
 
         }
-
+        //кнопка закрытия фильтров
         buttonexitfilter.setOnClickListener {
             mp.start()
             buttonegatiw.setVisibility(View.INVISIBLE)
@@ -240,41 +210,43 @@ degree = 45
             cb3.setVisibility(View.INVISIBLE)
             cb4.setVisibility(View.INVISIBLE)
         }
+        //кнопка эффекта чб 1
         cb1.setOnClickListener {
             mp.start()
             bitmap = blackWhite(bitmap, "median")
             image.setImageBitmap(bitmap)
         }
+        //кнопка эффекта чб 2
         cb2.setOnClickListener {
             mp.start()
             bitmap = blackWhite(bitmap, "red")
             image.setImageBitmap(bitmap)
         }
+        //кнопка эффекта чб 3
         cb3.setOnClickListener {
             mp.start()
             bitmap = blackWhite(bitmap, "green")
             image.setImageBitmap(bitmap)
         }
+        //кнопка эффекта чб 4
         cb4.setOnClickListener {
             mp.start()
             bitmap = blackWhite(bitmap, "blue")
             image.setImageBitmap(bitmap)
         }
-
-
-        //кнопка негатив
+        //кнопка негатив фильтра
         buttonegatiw.setOnClickListener {
             mp.start()
         bitmap = negative(bitmap)
         image.setImageBitmap(bitmap)
         }
-        //кнопка контраст
+        //кнопка контраст фильтра
         buttonreskost.setOnClickListener {
             mp.start()
         bitmap = contrst(bitmap, 0.5F)
         image.setImageBitmap(bitmap)
         }
-      //кнопка черно-белого
+        //кнопка черно-белого фильтра
         buttoncb.setOnClickListener {
             mp.start()
 
@@ -283,17 +255,29 @@ degree = 45
             cb3.setVisibility(View.VISIBLE)
             cb4.setVisibility(View.VISIBLE)
         }
-        buttoncub.setOnClickListener {
-
-        }
 
     }
 
+
+    //функции
+
+    //функция нажатия выхода из приложения (AlertDialog)
+    override fun onBackPressed() {
+        //алертдиалог
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Внимание!")
+        builder.setMessage("Вы хотите закрыть приложение?")
+        builder.setPositiveButton("Да", { dialogInterface: DialogInterface, i: Int ->
+            finish()
+        })
+        builder.setNegativeButton("Нет",{ dialogInterface: DialogInterface, i: Int -> })
+        builder.show()
+    }
+    //функция для фотографирования
     private fun getPhotoFile(fileName: String): File {
        val storageDirectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
       return File.createTempFile(fileName, ".jpg", storageDirectory)
     }
-
     //функция получения изображения из галереи
     private fun pickImageFromGallery()
     {
@@ -301,15 +285,14 @@ val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, IMAGE_PICK_CODE)
     }
-
-
+    //коды взятого изображения и разрешения
     companion object {
       //код взятого изображения
         private val IMAGE_PICK_CODE = 1000
         //код для разрешения
         private val PERMISSION_CODE = 1001
     }
-
+    //ф-я onRequestPermissionsResult
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
 
 
@@ -333,8 +316,8 @@ val intent = Intent(Intent.ACTION_PICK)
          }
        }
     }
-
     @SuppressLint("MissingSuperCall")
+    //ф-я onActivityResult
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE)
         {
@@ -350,8 +333,22 @@ val intent = Intent(Intent.ACTION_PICK)
             super.onActivityResult(requestCode, resultCode, data)
         }
     }
+    //ф-я для фрагментов
+    private fun attachFragment(fragment: Fragment, tag: String) {
+        if(fragment.isDetached) {
+            supportFragmentManager.beginTransaction().attach(fragment).commit()
+        } else {
+            supportFragmentManager.beginTransaction().replace(R.id.container, fragment, tag).commit()
+        }
+        supportFragmentManager.beginTransaction()
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                .commit()
+    }
 
-    // 1st task
+    //функции алгоритмов
+
+    //АЛГОРИТМ 1
+    // функция поворота(стандартная)
     fun rotate(bitmap: Bitmap): Bitmap {
         val image: ImageView = findViewById(R.id.image_view) as ImageView
 
@@ -373,8 +370,7 @@ val intent = Intent(Intent.ACTION_PICK)
 
         return newBitmap
     }
-
-
+    //функция бонусного поворота
     fun rotateBonus(bitmap: Bitmap, degree: Int): Bitmap {
         val image: ImageView = findViewById(R.id.image_view) as ImageView
 
@@ -417,7 +413,7 @@ val intent = Intent(Intent.ACTION_PICK)
 
         return newBitmap
     }
-
+    //доп ф-я
     fun upper(x: Double):Int {
         if(x.toInt() < x) {
             return (x.toInt() + 1)
@@ -425,7 +421,7 @@ val intent = Intent(Intent.ACTION_PICK)
             return x.toInt()
         }
     }
-
+    //доп ф-я
     fun minimum(a: Double, b: Double):Double {
         if (a < b) {
             return a
@@ -433,7 +429,7 @@ val intent = Intent(Intent.ACTION_PICK)
             return b
         }
     }
-
+    //доп ф-я
     fun maximum(a: Double, b: Double):Double {
         if (a > b) {
             return a
@@ -441,7 +437,7 @@ val intent = Intent(Intent.ACTION_PICK)
             return b
         }
     }
-
+    //доп ф-я
     fun module(x: Double): Double {
         if (x < 0) {
             return -x
@@ -450,7 +446,8 @@ val intent = Intent(Intent.ACTION_PICK)
         }
     }
 
-    // 2nd task
+    // АЛГОРИТМ 2
+    //функция негатива
     fun negative(bitmap: Bitmap): Bitmap {
         val image: ImageView = findViewById(R.id.image_view) as ImageView
 
@@ -483,7 +480,7 @@ val intent = Intent(Intent.ACTION_PICK)
 
         return newBitmap
     }
-
+    //функция чб
     fun blackWhite(bitmap: Bitmap, chanelColor: String): Bitmap {
         val width = bitmap.getWidth()
         val height = bitmap.getHeight()
@@ -535,7 +532,7 @@ val intent = Intent(Intent.ACTION_PICK)
 
         return newBitmap
     }
-
+    //функция контраста
     fun contrst(bitmap: Bitmap, k: Float): Bitmap {
         val image: ImageView = findViewById(R.id.image_view) as ImageView
 
@@ -599,15 +596,6 @@ val intent = Intent(Intent.ACTION_PICK)
         return newBitmap
     }
 
-private fun attachFragment(fragment: Fragment, tag: String) {
-    if(fragment.isDetached) {
-        supportFragmentManager.beginTransaction().attach(fragment).commit()
-    } else {
-        supportFragmentManager.beginTransaction().replace(R.id.container, fragment, tag).commit()
-    }
-    supportFragmentManager.beginTransaction()
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-            .commit()
-}
+
 
 }
