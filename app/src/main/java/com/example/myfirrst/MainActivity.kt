@@ -262,11 +262,30 @@ class MainActivity : AppCompatActivity() {
             oldBitmap = negative(bitmap)
         image.setImageBitmap(bitmap)
         }
+        var anyName2: Float = 0.5F
         //кнопка контраст фильтра
         buttonreskost.setOnClickListener {
-        oldBitmap = contrst(bitmap, 0.5F)
-        bitmap = contrst(bitmap, 0.5F)
-        image.setImageBitmap(bitmap)
+
+            editext133.setVisibility(View.VISIBLE);
+            butgalka333.setVisibility(View.VISIBLE);
+            textgradusi333.setVisibility(View.VISIBLE);
+
+
+
+        }
+        butgalka333.setOnClickListener {
+            editText = findViewById<View>(R.id.editext133) as EditText
+
+            var akoefx = editText.text.toString()
+            var anyName2 = akoefx.toFloat()
+
+            oldBitmap = contrst(bitmap, anyName2)
+            bitmap = contrst(bitmap, anyName2)
+            image.setImageBitmap(bitmap)
+
+            editext133.setVisibility(View.INVISIBLE);
+            butgalka333.setVisibility(View.INVISIBLE);
+            textgradusi333.setVisibility(View.INVISIBLE);
         }
         //кнопка черно-белого фильтра
         buttoncb.setOnClickListener {
